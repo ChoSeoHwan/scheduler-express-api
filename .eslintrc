@@ -1,0 +1,5 @@
+{
+    "extends": [
+        "@choseohwan/eslint-config-base"
+    ]
+}
