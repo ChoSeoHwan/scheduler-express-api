@@ -1,0 +1,8 @@
+# IDE config
+.idea
+
+# modules
+node_modules
+
+# distribution
+dist
