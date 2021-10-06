@@ -1,0 +1,17 @@
+{
+  "name": "scheduler-api",
+  "version": "0.0.0",
+  "description": "scheduler api",
+  "main": "index.js",
+  "author": "ChoSeoHwan <wtae1216@naver.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "husky": "^7.0.2"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
