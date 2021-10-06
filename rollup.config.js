@@ -14,7 +14,7 @@ export default buildRollupOptions(
     [
         outputBuilder.buildCJS({
             exports: 'named',
-            dir: 'dist/cjs'
+            dir: 'dist'
         })
     ],
     plugins
