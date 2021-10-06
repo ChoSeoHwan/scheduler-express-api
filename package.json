@@ -7,6 +7,9 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@choseohwan/babel-preset-base": "^1.0.1",
     "@choseohwan/eslint-config-base": "^1.0.13",
     "@choseohwan/prettier-config-base": "^1.0.7",
     "@choseohwan/tsconfig-base": "^1.0.12",
