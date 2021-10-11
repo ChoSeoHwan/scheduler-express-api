@@ -2,10 +2,10 @@ import buildRollupOptions, { Input, OutputBuilder, Plugin } from '@choseohwan/ro
 import buildBasePlugins from '@choseohwan/rollup-plugin-builder-base';
 import json from '@rollup/plugin-json';
 
-const input = new Input('src/index.ts');
+const input = new Input(['src/app.ts']);
 
 const outputBuilder = new OutputBuilder({
-    sourcemap: true
+    sourcemap: false
 });
 
 const plugins = buildBasePlugins();
@@ -20,7 +20,6 @@ export default buildRollupOptions(
     input,
     [
         outputBuilder.buildCJS({
-            exports: 'named',
             dir: 'dist'
         })
     ],
