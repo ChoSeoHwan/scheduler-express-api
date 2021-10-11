@@ -1,13 +1,20 @@
-import { delay } from '@choseohwan/utils';
 import express from 'express';
+
+import { afterMiddleware, beforeMiddleware } from '~/config/middleware';
+import routes from '~/config/routes';
 
 const app = express();
 
-app.get('/', async (req: express.Request, res: express.Response) => {
-    console.log('delay start');
-    await delay(1000);
-    console.log('request received');
-    res.send('start');
-});
+// set before middleware
+beforeMiddleware(app);
 
-app.listen(8001, () => console.log('start'));
+// set routes
+routes(app);
+
+// set after middleware
+afterMiddleware(app);
+
+// start server
+app.listen(8001, () => {
+    console.log('test');
+});
