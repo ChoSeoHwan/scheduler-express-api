@@ -40,6 +40,17 @@
     "typescript": "^4.4.3",
     "typescript-transform-paths": "^3.3.1"
   },
+  "dependencies": {
+    "@choseohwan/utils": "^1.0.27",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/helmet": "^4.0.0",
+    "@types/method-override": "^0.0.32",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "method-override": "^3.0.0"
+  },
   "lint-staged": {
     "*.(js|jsx|ts|tsx)": [
       "yarn eslint:fix"
@@ -50,16 +61,7 @@
     "eslint": "eslint './src/**/*.ts'",
     "eslint:fix": "yarn eslint --fix",
     "lint-staged": "lint-staged",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node -r tsconfig-paths/register -P tsconfig.dev.json  src/app.ts'",
+    "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node -r tsconfig-paths/register -P tsconfig.dev.json  src/index.ts'",
     "build": "rollup -c rollup.config.js"
-  },
-  "dependencies": {
-    "@choseohwan/utils": "^1.0.27",
-    "@types/cookie-parser": "^1.4.2",
-    "@types/express": "^4.17.13",
-    "@types/helmet": "^4.0.0",
-    "cookie-parser": "^1.4.5",
-    "express": "^4.17.1",
-    "helmet": "^4.6.0"
   }
 }

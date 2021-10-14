@@ -6,7 +6,9 @@
         "paths": {
             "~/*": ["src/*"]
         },
-        "declaration": false
+        "declaration": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     },
     "include": [
         "src/**/*"
