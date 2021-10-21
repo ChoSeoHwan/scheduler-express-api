@@ -5,7 +5,7 @@ import { Request, Response } from 'express';
 class IndexRouter extends RestApiRouter {
     protected index(req: Request, res: Response): void {
         res.json({
-            message: 'index'
+            message: 'index te'
         });
     }
 
