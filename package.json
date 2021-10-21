@@ -14,8 +14,8 @@
     "@choseohwan/babel-preset-base": "^1.0.1",
     "@choseohwan/eslint-config-base": "^1.0.13",
     "@choseohwan/prettier-config-base": "^1.0.7",
-    "@choseohwan/rollup-builder": "^1.1.5",
-    "@choseohwan/rollup-plugin-builder-base": "^1.0.3",
+    "@choseohwan/rollup-builder": "^1.1.6-alpha-34.91ca433ff47dcb49e0a97b9faea1dbed9df01cb3.0",
+    "@choseohwan/rollup-plugin-builder-base": "^1.1.0-alpha-34.91ca433ff47dcb49e0a97b9faea1dbed9df01cb3.0",
     "@choseohwan/tsconfig-base": "^1.0.12",
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
@@ -23,9 +23,11 @@
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.5",
+    "@types/jest": "^27.0.2",
     "@types/node": "^16.10.3",
     "eslint": "^7.32.0",
     "husky": "^7.0.2",
+    "jest": "^27.2.5",
     "lint-staged": "^11.2.0",
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1",
@@ -41,12 +43,14 @@
     "typescript-transform-paths": "^3.3.1"
   },
   "dependencies": {
-    "@choseohwan/utils": "^1.0.27",
+    "@choseohwan/express-utils": "^0.1.0-alpha-34.0d5383b03bd7fca9350b526d9f7d7fb3ec2c4e7c.0",
+    "@choseohwan/utils": "^1.1.0-alpha-34.0d5383b03bd7fca9350b526d9f7d7fb3ec2c4e7c.0",
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
     "@types/helmet": "^4.0.0",
     "@types/method-override": "^0.0.32",
     "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "method-override": "^3.0.0"
@@ -61,7 +65,7 @@
     "eslint": "eslint './src/**/*.ts'",
     "eslint:fix": "yarn eslint --fix",
     "lint-staged": "lint-staged",
-    "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node -r tsconfig-paths/register -P tsconfig.dev.json  src/index.ts'",
+    "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'rollup -c rollup.config.js && node dist/index.js'",
     "build": "rollup -c rollup.config.js"
   }
 }

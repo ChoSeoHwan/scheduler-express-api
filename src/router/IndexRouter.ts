@@ -1,7 +1,6 @@
+import { RestApiRouter } from '@choseohwan/express-utils';
+import { HTTPMethod } from '@choseohwan/utils/constant';
 import { Request, Response } from 'express';
-
-import HTTPMethod from '~/constant/HTTPMethod';
-import RestApiRouter from '~/libs/RestApiRouter';
 
 class IndexRouter extends RestApiRouter {
     protected index(req: Request, res: Response): void {
