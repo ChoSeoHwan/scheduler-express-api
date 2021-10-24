@@ -1,6 +1,7 @@
+import 'source-map-support/register';
 import '~/config/dotenvConfig';
 
-import SchedulerApp from '~/app';
+import SchedulerApp from '~/App';
 
 const app = new SchedulerApp().getApp();
 

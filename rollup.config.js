@@ -4,7 +4,7 @@ import buildBasePlugins from '@choseohwan/rollup-plugin-builder-base';
 const input = new Input(['src/index.ts']);
 
 const outputBuilder = new OutputBuilder({
-    sourcemap: false
+    sourcemap: true
 });
 
 const plugins = buildBasePlugins();

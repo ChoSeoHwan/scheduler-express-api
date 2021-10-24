@@ -50,11 +50,17 @@
     "@types/express": "^4.17.13",
     "@types/helmet": "^4.0.0",
     "@types/method-override": "^0.0.32",
+    "@types/moment": "^2.13.0",
+    "@types/morgan": "^1.9.3",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
-    "method-override": "^3.0.0"
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "rotating-file-stream": "^2.1.6",
+    "source-map-support": "^0.5.20"
   },
   "lint-staged": {
     "*.(js|jsx|ts|tsx)": [
@@ -66,7 +72,7 @@
     "eslint": "eslint './src/**/*.ts'",
     "eslint:fix": "yarn eslint --fix",
     "lint-staged": "lint-staged",
-    "dev": "concurrently \"rollup -w -c rollup.config.js\" \"nodemon --watch 'dist/**' --exec 'node dist/index.js'\"",
+    "dev": "concurrently \"rollup -w -c rollup.config.js\" \"nodemon --watch 'dist/**' --exec 'NODE_ENV=development node dist/index.js'\"",
     "build": "rollup -c rollup.config.js"
   }
 }

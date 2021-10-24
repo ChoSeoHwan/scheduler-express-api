@@ -5,6 +5,7 @@ import helmet from 'helmet';
 
 import errorHandlerMiddleware from '~/middleware/errorHandlerMiddleware';
 import methodOverrideMiddleware from '~/middleware/methodOverrideMiddleware';
+import morganMiddleware from '~/middleware/morganMiddleware';
 import notFoundMiddleware from '~/middleware/notFoundMiddleware';
 import IndexRouter from '~/router/IndexRouter';
 
@@ -23,6 +24,8 @@ class SchedulerApp extends Application {
         this.app.use(cookieParser());
 
         this.app.use(methodOverrideMiddleware());
+
+        this.app.use(morganMiddleware());
     }
 
     /**
@@ -42,7 +45,7 @@ class SchedulerApp extends Application {
     protected initAfterMiddleware(): void {
         this.app.use(notFoundMiddleware);
 
-        this.app.use(errorHandlerMiddleware);
+        this.app.use(errorHandlerMiddleware());
     }
 }
 

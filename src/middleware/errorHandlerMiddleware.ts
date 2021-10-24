@@ -1,19 +1,46 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
+import morgan from 'morgan';
 
-import HttpException from '~/exception/HttpException';
+import { currentEnvironment, Environment } from '~/constant/environment';
+import HttpError from '~/error/HttpError';
+import getLogger from '~/library/getLogger';
+import { Handler } from '~/type/express';
 
-const errorHandlerMiddleware = (
-    err: HttpException,
-    req: Request,
-    res: Response
-): void => {
-    const status = err.status || 500;
-    const message = err.message || 'Something went wrong';
+const errorHandlerMiddleware = (): Handler[] => {
+    const logger = getLogger('error');
 
-    res.status(status).json({
-        status,
-        message
-    });
+    return [
+        // morgan log for error
+        (err: Error, req: Request, res: Response, next: NextFunction) => {
+            morgan('combined', {
+                stream: logger,
+                skip: (req: Request, res: Response) => res.statusCode < 500
+            })(req, res, () => next(err));
+        },
+        // detail error log
+        (err: Error, req: Request, res: Response, next: NextFunction) => {
+            res.on('finish', () => {
+                logger.write(`${err.stack}\n`);
+            });
+
+            next(err);
+        },
+        // set error response
+        (err: Error, req: Request, res: Response, next: NextFunction) => {
+            let status = 500;
+            if (err instanceof HttpError) status = err.status;
+
+            let message = 'Something went wrong';
+            if (currentEnvironment !== Environment.PRODUCTION)
+                message = err.message;
+
+            res.status(status).json({
+                message
+            });
+
+            next();
+        }
+    ];
 };
 
 export default errorHandlerMiddleware;
