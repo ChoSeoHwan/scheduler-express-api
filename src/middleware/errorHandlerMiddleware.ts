@@ -3,11 +3,11 @@ import morgan from 'morgan';
 
 import { currentEnvironment, Environment } from '~/constant/environment';
 import HttpError from '~/error/HttpError';
-import getLogger from '~/library/getLogger';
+import loggerFactory from '~/library/loggerFactory';
 import { Handler } from '~/type/express';
 
 const errorHandlerMiddleware = (): Handler[] => {
-    const logger = getLogger('error');
+    const logger = loggerFactory('error');
 
     return [
         // morgan log for error

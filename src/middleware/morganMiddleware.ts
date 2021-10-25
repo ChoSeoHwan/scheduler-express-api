@@ -1,10 +1,10 @@
 import morgan from 'morgan';
 
 import { currentEnvironment, Environment } from '~/constant/environment';
-import getLogger from '~/library/getLogger';
+import loggerFactory from '~/library/loggerFactory';
 
 const morganMiddleware = (): ReturnType<typeof morgan>[] => {
-    const logger = getLogger('access');
+    const logger = loggerFactory('access');
 
     const morganList = [];
 
